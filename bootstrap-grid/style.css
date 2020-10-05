@@ -1,0 +1,17 @@
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.col-md-4 {
+    background-color: cornsilk;
+}
+
+.col-md-2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: burlywood;
+}
+
+.col-md-6 {
+    color: rgb(42, 161, 165);
+    background-color: darkblue;
+}
