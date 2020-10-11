@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Loops</title>
+  </head>
+  <body>
+
+    <h1>Open the console to see the magic!</h1>
+
+    <script>
+
+      //Math.random();
+      /*
+      get r, p, or s from user 
+      turn that input into a variable
+      Math.random() to get r, p or s value from cpu
+      compare user and cpu values
+      store result
+      display result
+      */
+      
+      
+      // let turns = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+      let rps = ["r", "p", "s"];
+      let counter = 0;
+      let tie = 0;
+      let win = 0;
+      let lose = 0;
+      
+      while(counter < 10) {
+      let userInput = prompt("Choose r, p or s!");
+      let cpuInput = rps[Math.floor(Math.random() * rps.length)];
+
+      alert("CPU chose " + cpuInput);
+
+      if (userInput === cpuInput) {
+        alert("its a tie!")
+        tie++;
+      }
+      else if (userInput === "r" && cpuInput === "r") {
+        alert("Its a tie!");
+        tie++;
+      }
+      else if (userInput === "r" && cpuInput === "s") {
+        alert("You win!");
+        win++;
+      }
+      else if (userInput === "r" && cpuInput === "p") {
+        alert("You lose!");
+        lose++;
+      }
+      else if (userInput === "p" && cpuInput === "s") {
+        alert("You lose!");
+        lose++;
+      }
+      else if (userInput === "p" && cpuInput === "r") {
+        alert("You win!");
+        win++;
+      }
+      else if (userInput === "p" && cpuInput === "p") {
+        alert("Its a tie!");
+        tie++;
+      }
+      else if (userInput === "s" && cpuInput === "s") {
+        alert("Its a tie!");
+        tie++;
+      }
+      else if (userInput === "s" && cpuInput === "p") {
+        alert("You win!");
+        win++;
+      }
+      else if (userInput === "s" && cpuInput === "r") {
+        alert("You lose!");
+        lose++;
+      }
+
+      alert("Wins:" + win + "Losses:" + lose + "Ties:" + tie);
+
+      counter++;
+      }
+      
+
+    </script>
+    
+  </body>
+</html>
+

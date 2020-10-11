@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    Player is prompted to choose r, p, or s
+    cpu randomly chooses r, p, or s
+    cpu choice is displayed to user via alert window
+    result is calculated with if/else statements
+    result is displayed to user via alert window or console
+    score is updated 
+    score is displayed to user via alert or console
+
+    */
+
+    let choices = ["r", "p", "s"];
+
+    let userScore = 0;
+    let cpuScore = 0;
+    let tieGames = 0;
+    // alert(cpuChoice); 
+    let counter = 0;
+
+    while (counter < 10) {
+        
+    let userChoice = "";
+    let cpuChoice = choices[Math.floor(Math.random() * choices.length)];
+        console.log(cpuChoice);
+    prompt("Your turn! Choose r, p, or s!");
+
+    alert("CPU's turn, and they chose " + cpuChoice);
+
+    if (userChoice === "r" && cpuChoice === "r") {
+        alert("It's a tie!");
+        tieGames++;
+    }
+    else if (userChoice === "p" && cpuChoice === "p") {
+        alert("It's a tie!");
+        tieGames++;
+    }
+    else if (userChoice === "s" && cpuChoice === "s") {
+        alert("It's a tie!");
+        tieGames++;
+    }
+    else if ( userChoice === "r" && cpuChoice === "p") {
+        alert("CPU wins!");
+        cpuScore++;
+    }
+    else if ( userChoice === "p" && cpuChoice === "s") {
+        alert("CPU wins!");
+        cpuScore++;
+    }
+    else if ( userChoice === "s" && cpuChoice === "r") {
+        alert("CPU wins!");
+        cpuScore++;
+    }
+    else if ( userChoice === "r" && cpuChoice === "s") {
+        alert("You win!");
+        userScore++;
+    }
+    else if ( userChoice === "s" && cpuChoice === "p") {
+        alert("You win!");
+        userScore++;
+    } 
+    else if (userChoice === "p" && cpuChoice === "r") {
+        alert("You win!");
+        userScore++;
+    }
+    alert("Wins: " + userScore + "Losses: " + cpuScore + "Ties: " + tieGames);
+    counter++;
+    }
+    
+</script>
+</html>
