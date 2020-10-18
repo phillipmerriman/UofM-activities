@@ -28,12 +28,13 @@
     // alert(cpuChoice); 
     let counter = 0;
 
+    console.log(typeof(counter));
     while (counter < 10) {
         
-    let userChoice = "";
+    let userChoice = prompt("Your turn! Choose r, p, or s!");
     let cpuChoice = choices[Math.floor(Math.random() * choices.length)];
         console.log(cpuChoice);
-    prompt("Your turn! Choose r, p, or s!");
+    
 
     alert("CPU's turn, and they chose " + cpuChoice);
 

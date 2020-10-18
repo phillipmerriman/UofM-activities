@@ -17,7 +17,11 @@ let tipPct = document.getElementById("tip");
 let tipAmt = document.getElementById("tip-amount");
 let total = document.getElementById("new-total");
 
-document.querySelector("#submit").addEventListener("click", function(){
-    mealCost * (tipPct * .01)
+document.querySelector("#submit").addEventListener("click", function(event){
+    event.preventDefault();
+    console.log(mealCost.value);
+   let tip = tipPct.value.toFixed(2);
+   console.log(tip);
+   tipAmt.textContent = mealCost.value * (tip);
+   total.textContent = mealCost.value + tip;
 })
-total.textContent = "";
