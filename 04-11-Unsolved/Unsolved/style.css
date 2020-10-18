@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 h4 {
   text-align: center;
   font-size: 34px;
@@ -15,4 +16,23 @@ button {
   font-size: 24px;
   background-color: #247BA0;
   color: white;
+=======
+h4 {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.container {
+  text-align: center;
+}
+
+button {
+  padding: 10px;
+  margin: 24px;
+  cursor: pointer;
+  font-size: 24px;
+  background-color: #247BA0;
+  color: white;
+>>>>>>> 356f3ce288e8d8d0eeca2ef070338b684fd7e59c
 }
