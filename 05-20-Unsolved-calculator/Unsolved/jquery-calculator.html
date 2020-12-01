@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Calculator</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Added a link to our external stylesheet-->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- Jumbotron for Title -->
+<div class="jumbotron">
+    <h1 class="text-center">jQuery Calculator</h1>
+    <h3 class="text-center">Perform basic mathematic operations using the power of jQuery!</h3>
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+      <!-- Calculator Card -->
+      <div class="col-lg-4">
+        <div class="card">
+          <h3 class="card-header">Calculator</h3>
+
+          <div class="card-body">
+            <button id="button-1" class="btn btn-primary number" value="1"><span>1</span></button>
+            <button id="button-2" class="btn btn-primary number" value="2"><span>2</span></button>
+            <button id="button-3" class="btn btn-primary number" value="3"><span>3</span></button>
+            <button id="button-plus" class="btn btn-danger operator" value="plus"><span>+</span></button>
+            <br><br>
+            <button id="button-4" class="btn btn-primary number" value="4"><span>4</span></button>
+            <button id="button-5" class="btn btn-primary number" value="5"><span>5</span></button>
+            <button id="button-6" class="btn btn-primary number" value="6"><span>6</span></button>
+            <button id="button-minus" class="btn btn-danger operator" value="minus"><span>&minus;</span></button>
+            <br><br>
+            <button id="button-7" class="btn btn-primary number" value="7"><span>7</span></button>
+            <button id="button-8" class="btn btn-primary number" value="8"><span>8</span></button>
+            <button id="button-9" class="btn btn-primary number" value="9"><span>9</span></button>
+            <button id="button-multiply" class="btn btn-danger operator" value="times"><span>&times;</span></button>
+            <br><br>
+            <button id="button-0" class="btn btn-primary number" value="0"><span>0</span></button>
+            <button id="button-divide" class="btn btn-danger operator" value="divide"><span>&divide;</span></button>
+            <button id="button-power" class="btn btn-danger operator" value="power"><span>^</span></button>
+            <button id="button-equal" class="btn btn-success equal" value="equals"><span>=</span></button>
+            <br><br>
+            <button id="button-clear" class="btn btn-dark clear" value="clear"><span>clear</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Card -->
+      <div class="col-lg-6">
+        <div class="card">
+          <h3 class="card-header">Result</h3>
+          <div class="card-body">
+            <h1 id="first-number"></h1>
+            <h1 id="operator"></h1>
+            <h1 id="second-number"></h1>
+            <hr>
+            <h1 id="result"></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+/*
+create click events for classes i.e. .equal, .operator, .number, etc.
+  if number clicked and operator clicked = false
+    append number to first num field
+  if operator clicked
+    append said operator to operator field and operator clicked = true
+  if operator clicked = true and number clicked
+    append number to second num field
+  if equals is clicked
+    do math
+    append math to answer field
+  if clear is clicked
+    clear all fields
+*/
+$(document).ready(function() {
+// Your code here...
+
+  let operatorClicked = false;
+
+  $(".number").on("click", function(){
+    if (operatorClicked === false) {
+      $("#first-number").append(this.value);
+    } else {
+      $("#second-number").append(this.value);
+      }
+  });
+
+  $(".operator").on("click", function(){
+    if ($("#first-number").text() === ""){
+      return;
+    } else {
+    operatorClicked = true;
+    $("#operator").empty();
+    $("#operator").append(this.value);
+    }
+  });
+
+  $(".equal").on("click", function(){
+
+    let firstNumber = parseInt($("#first-number").text());
+    let secondNumber = parseInt($("#second-number").text());
+
+    if ($("#operator").text() === "plus") {
+      $("#result").empty();
+      $("#result").append(firstNumber + secondNumber);
+    }
+    if ($("#operator").text() === "minus") {
+      $("#result").empty();
+      $("#result").append(firstNumber - secondNumber);
+    }
+    if ($("#operator").text() === "times") {
+      $("#result").empty();
+      $("#result").append(firstNumber * secondNumber);
+    }
+    if ($("#operator").text() === "divide") {
+      $("#result").empty();
+      $("#result").append(firstNumber / secondNumber);
+    }
+    if ($("#operator").text() === "power") {
+      $("#result").empty();
+      $("#result").append(Math.pow(firstNumber, secondNumber));
+    }
+  });
+
+  $(".clear").on("click", function(){
+    $("#first-number").empty();
+    $("#second-number").empty();
+    $("#operator").empty();
+    $("#result").empty();
+    operatorClicked = false;
+  });
+
+});
+
+</script>
+
+</body>
+</html>
